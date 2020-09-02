@@ -1,18 +1,21 @@
 /*
 * Innitiate Color Picker
 * and set our custom values
+* CBB plugin by Worda Themes
+*
 */
 (function ($) {
     "use strict";
 
-    var default_color = '#FFFFFF';
+    var default_color = 'E5487B';
+
 
     function pickColor(color) {
         $('#cbb-set-color').val(color);
     }
     function toggle_text() {
         var cbb_set_color = $('#cbb-set-color');
-        if ('' === cbb_set_color.val().replace('#', '')) {
+        if ('' === cbb_set_color.val()) {
             cbb_set_color.val(default_color);
             pickColor(default_color);
         } else {

@@ -3,9 +3,9 @@
 Plugin Name: Colorize Mobile Browser Bar
 Plugin URI:  https://wordpress.org/plugins/colorize-browser-bar/
 Description: Quickly set the Browser bar color on mobile devices to match your header color or any other color of your choice. It works on all major mobile browsers and supports Android, iOS and Windows devices.
-Version:     1.0.1
+Version:     1.0.2
 Author:      Worda Themes
-Author URI:  https://worda.xyz/
+Author URI:  https://wordathemes.com/
 License:     GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: cbb_

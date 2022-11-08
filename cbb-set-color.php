@@ -16,6 +16,7 @@
                <h2>Select & Apply Browser bar color</h2>
                 <p class="about-description">Use this color picker to select or paste the color to paint the Mobile devices Browser top bar. After you save changes, open your website on any mobile device and check it out.</p>
                <br/>
+               
             </div>
     </div>
 
@@ -24,7 +25,7 @@
         <?php $options = get_option( 'cbb_options' );?>
 
         <ul>
-            <li><label for="cbb_set_color"><?php echo __('Select Color'); ?>: </label>
+            <li><label for="cbb_set_color"><?php echo __('Change Color'); ?>: </label>
                 <input name="cbb_options[cbb_set_color]" id="cbb-set-color" type="text" value="<?php if ( isset( $options['cbb_set_color'] ) ) echo $options['cbb_set_color']; ?>" />
                </li>
              </ul>

@@ -1,13 +1,12 @@
 /*
 * Innitiate Color Picker
 * and set our custom values
-* CBB plugin by Worda Themes
-*
 */
+
 (function ($) {
     "use strict";
 
-    var default_color = 'E5487B';
+    var default_color = 'FFFFFF';
 
 
     function pickColor(color) {

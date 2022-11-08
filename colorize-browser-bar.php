@@ -3,7 +3,7 @@
 Plugin Name: Colorize Mobile Browser Bar
 Plugin URI:  https://wordpress.org/plugins/colorize-browser-bar/
 Description: Quickly set the Browser bar color on mobile devices to match your header color or any other color of your choice. It works on all major mobile browsers and supports Android, iOS and Windows devices.
-Version:     1.0.6
+Version:     1.1.0
 Author:      Worda Themes
 Author URI:  https://wordathemes.com/
 License:     GPLv3
@@ -11,7 +11,6 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: cbb_
 */
 
-// No direct calls
 defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
 // Initiate the admin menu, options page and enquque the custom color picker setup
@@ -20,40 +19,34 @@ defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 	add_action('admin_menu', 'cbb_add_options_page');
 	add_action( 'admin_enqueue_scripts', 'cbb_admin_enqueue_scripts' );
     
-    // Uses the Settings_API to register the plugin options.
-    
+    // Uses the Settings_API to register the plugin options.   
     function cbb_init(){
         register_setting( 'cbb_plugin_options', 'cbb_options', 'cbb_validate_options' );
     }
 
-    // Defines plugin options page parameters.
-    
+    // Defines Plugin Options Page 
     function cbb_add_options_page() {
         add_options_page('Colorize Browser Bar', 'Colorize Browser Bar', 'manage_options', __FILE__, 'cbb_display_options');
     }
 
-    // Displays Initialized
-    
+    // Initiate Main Functionality
     function cbb_display_options() {
         include "cbb-set-color.php";
     }
 
-    // Add Admin widget
+    // Add Admin Widget
     function cbb_add_dashboard_widgets() {
     
-
-
     wp_add_dashboard_widget(
-                 'cbb_dashboard_widget',
-                 'Colorize Browser Bar',
-                 'cbb_dashboard_widget_function'
+            'cbb_dashboard_widget',
+            'Colorize Browser Bar',
+            'cbb_dashboard_widget_function'
         );
-    }
+}
+
     add_action( 'wp_dashboard_setup', 'cbb_add_dashboard_widgets' );
 
     function cbb_dashboard_widget_function() {
-
-    // Message to our beloved users :)
 
     $cbb_author_url = 'https://wordathemes.com/';
     $cbb_banner_url = '//wordathemes.com/static/worda-themes.webp';
@@ -64,25 +57,22 @@ defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
     echo "<p>Thank you for using our <strong>Colorize Browser Bar</strong> plugin.</br> If you need support, open a new thread <a href=".$cbb_support_url." target='_blank'/>right here</a>.</br> If you find this plugin useful, consider rating it with ★★★★★ <a href=".$cbb_review_url." target='_blank'/>here</a>. </p>";
     echo "<h3 style='padding-top:10px;'><strong>☆ LATEST FROM OUR BLOG ☆</strong></h3>";
    
-
-    // Get RSS Feed(s)
     include_once(ABSPATH . WPINC . '/feed.php');
 
-    // My feeds list (add your own RSS feeds urls)
     $cbb_feed = array( 
                 'https://wordathemes.com/feed', 
                 );
     
-    // Loop through Feeds
+    // Loop Through Feeds
     foreach ( $cbb_feed as $feed) :
     
-        // Get a SimplePie feed object from the specified feed source.
+        // Get a SimplePie feed object
         $rss = fetch_feed( $feed );
         if (!is_wp_error( $rss ) ) : // Checks that the object is created correctly 
-            // Figure out how many total items there are, and choose a limit 
+            // Define how many items to show
             $maxitems = $rss->get_item_quantity( 5 ); 
         
-            // Build an array of all the items, starting with element 0 (first element).
+            // Build an array of all the items
             $rss_items = $rss->get_items( 0, $maxitems ); 
     
             // Get RSS title
@@ -126,12 +116,11 @@ defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
         echo '</ul></div>';
 
     endforeach; 
-    }
+}
 
-    // Uses sanitize_text_field to strip html from input text.
-
+    // Uses sanitize_text_field to strip HTML from input
     function cbb_validate_options($input) {
-        // strip html from textboxes
+
         sanitize_text_field($input);
         return $input;
     }
@@ -141,18 +130,16 @@ defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
     function cbb_admin_enqueue_scripts($hook) {
       
         wp_enqueue_script( 'wp-color-picker' );
-        // load the minified version of custom script
         wp_enqueue_script( 'cbb-picker-settings', plugins_url( 'assets/js/cbb.js', __FILE__ ), array( 'jquery', 'wp-color-picker' ), '1.1', true );
         wp_enqueue_style( 'wp-color-picker' );
     }
 
     // Insert the colors via meta data inside the pages head tag
-
     function cbb_add_meta_tags() {
 
         $cbb_color = get_option('cbb_options'); 
         // Start meta tags
-        echo '<!-- Set color of the browser bar - Colorize Browser Bar -->' . "\n";
+        echo '<!-- Colorize Browser Bar - set mobile browser bar color -->' . "\n";
         // Chrome, Firefox, Opera, Brave and Vivaldi
         echo '<meta name="theme-color" content="' .  $cbb_color['cbb_set_color'] . '" />' . "\n";
         // Windows Phone

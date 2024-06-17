@@ -1,6 +1,8 @@
 /*
 * Innitiate Color Picker
 * and set our custom values
+* @package Colorize Mobile Browser Address bar
+*
 */
 
 (function ($) {

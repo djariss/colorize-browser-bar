@@ -3,9 +3,9 @@
 Plugin Name: Colorize Mobile Browser Bar
 Plugin URI:  https://wordpress.org/plugins/colorize-browser-bar/
 Description: Quickly set the Browser bar color on mobile devices to match your header color or any other color of your choice. It works on all major mobile browsers and supports Android, iOS and Windows devices.
-Version:     1.1.0
+Version:     1.2.0
 Author:      Worda Themes
-Author URI:  https://wordathemes.com/
+Author URI:  https://eletuts.com/
 License:     GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: cbb_
@@ -48,8 +48,8 @@ defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
     function cbb_dashboard_widget_function() {
 
-    $cbb_author_url = 'https://wordathemes.com/';
-    $cbb_banner_url = '//wordathemes.com/static/worda-themes.webp';
+    $cbb_author_url = 'https://eletuts.com/';
+    $cbb_banner_url = '//eletuts.com/static/logo-banner.png';
     $cbb_support_url = '//wordpress.org/support/plugin/colorize-mobile-browser-bar/';
     $cbb_review_url = '//wordpress.org/support/plugin/colorize-mobile-browser-bar/reviews/';
   
@@ -60,7 +60,7 @@ defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
     include_once(ABSPATH . WPINC . '/feed.php');
 
     $cbb_feed = array( 
-                'https://wordathemes.com/feed', 
+                'https://eletuts.com/feed', 
                 );
     
     // Loop Through Feeds

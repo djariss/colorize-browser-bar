@@ -14,7 +14,7 @@
         <div>
             <div>
                <h2>Select & Apply Browser bar color</h2>
-                <p class="about-description">Use this color picker to select or paste the color to paint the Mobile devices Browser top bar. After you save changes, open your website on any mobile device and check it out.</p>
+                <p class="about-description">Use color picker to select or paste the color that will be applied as background color on Mobile devices Browser top bar. After you save changes, open your website on any mobile device and check it out.</p>
                <br/>
                
             </div>
